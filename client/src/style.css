@@ -2,14 +2,16 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Urbanist", sans-serif;
+  background-color: var(--cream);
 }
 
 :root {
-  --cream: #FAF3F0;
-  --light-green: #D4E2D4;
-  --light-red: #FFCACC;
-  --light-purple: #DBC4F0;
-  --light-blue: #C1EFFF;
+  --light-purple: #E1AFD1;
+  --purple: #AD88C6;
+  --dark-purple: #7469B6;
+  --cream: #FFE6E6;
   --dark: #354259;
-  --brown: #85586F;  
+  --light-pink: #F1D4E5;
+  --light-blue: #D4FAFC;
+  --blue: #19A7CE;
 }

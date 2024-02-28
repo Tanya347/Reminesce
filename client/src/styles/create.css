@@ -6,19 +6,20 @@
     height: fit-content;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 .create .createContainer .input {
     display: flex;
     flex-direction: column;
     text-align: center;
-    gap: 5px;
+    gap: 10px;
 }
 
 .create .createContainer textarea {
     border: none;
-    background-color: var(--light-red);
+    margin-top: 10px;
+    background-color: white;
     font-family: "Caveat", cursive;
     font-size: 1.5rem;
 }
@@ -65,4 +66,27 @@
     padding: 0 0 20px 0;
     font-size: 25px;
     font-size: 1.2rem;
+}
+
+.input label {
+    font-size: 1.5rem;
+}
+
+.input input {
+    font-size: 1.2rem;
+    padding: 10px;
+  font-family: "Urbanist", sans-serif;
+}
+
+.create .createBtn {
+    width: 150px;
+    height: 40px;
+    border: none;
+    background: var(--purple);
+    border-radius: 25px;
+    font-size: 15px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
 }

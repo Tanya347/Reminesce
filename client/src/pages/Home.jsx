@@ -12,13 +12,14 @@ const Home = () => {
     const { user } = useContext(AuthContext)
     const {data, loading} = useFetch(`/entries/author/${user._id}`)
 
-    // const keys = ["type", "title", "location"];
+    const keys = ["title", "location","date"];
 
-    // const search = (data) => {
-    //   return data.filter((item) =>
-    //     keys.some((key) => item[key].toLowerCase().includes(query))
-    //   );
-    // };
+    const search = (data) => {
+      return data.filter((item) =>
+        keys.some((key) => item[key] && item[key].toLowerCase().includes(query))
+      );
+    };
+    
 
   return (
     <div>
@@ -29,7 +30,7 @@ const Home = () => {
               <div className="searchInput">
                   <input
                     type="text"
-                    placeholder="Search Activities, places or posts"
+                    placeholder="Search places or dates"
                     onChange={(e) => setQuery(e.target.value)}
                   />
                   <FontAwesomeIcon className="icon" icon={faMagnifyingGlass} />
@@ -44,7 +45,7 @@ const Home = () => {
           </>
         ) : (
           <>
-            {data?.map((item, i) => (
+            {search(data)?.map((item, i) => (
               <div className="card" key={item._id} data-aos="fade-up">
                 <div class="content">
                   <img id="post-image" src={item.photos[0]} alt="no content" />

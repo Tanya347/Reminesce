@@ -156,13 +156,13 @@ const Create = () => {
                         name='entry'
                         id='text'
                         cols="150"
-                        rows='50'
+                        rows='25'
                         onChange={handleChange}
                         autoFocus
                     ></textarea>
                 </div>
 
-                <button onClick={handleClick}>Create Entry</button>
+                <button className='createBtn' onClick={handleClick}>Create Entry</button>
             </div>
         </div>
     )
