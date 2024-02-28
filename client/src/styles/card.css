@@ -1,0 +1,80 @@
+.actionCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    padding: 10px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.actionElement {
+    transition: 0.3s;
+}
+
+.actionDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.actionDetails p {
+    font-size: 1rem;
+    height: 40px;
+    padding: 15px 10px;
+    color: #126e82;
+    margin-bottom: 25px;
+}
+
+.actionDetails img {
+    width: 60%;
+    padding: 5px 5px;
+}
+
+.actionCard:hover {
+    border-radius: 25px;
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+}
+
+.actionDetails button {
+    background-color: #51c4d3;
+    border: none;
+    color: white;
+    margin-top: 10px;
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.actionDetails button:hover {
+    background-color: #26aec0;
+    transform: translateY(-2px);
+}
+
+@media screen and (max-width: 620px) {
+    .actionCard {
+        width: 90%;
+    }
+
+    .actionElement {
+        padding-top: 30px;
+    }
+
+    .actionDetails img {
+        width: 50%;
+        padding: 5px 5px;
+    }
+
+    .actionDetails button {
+        margin-top: 2px;
+    }
+
+    .actionDetails p {
+        height: 40px;
+    }
+}
