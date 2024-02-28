@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import "../styles/register.css";
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +21,33 @@ function Register() {
   const handleClick = async (e) => {
     e.preventDefault();
 
-    
+    if (file) {
+      const data = new FormData();
+
+      data.append("file", file);
+      data.append("upload_preset", "upload");
+
+
+      try {
+        const uploadRes = await axios.post(
+          "https://api.cloudinary.com/v1_1/dmjd7myiw/image/upload",
+          data, { withcredentials: false }
+        );
+
+        const { url } = uploadRes.data;
+
+        const newUser = {
+          ...info,
+          profilePicture: url,
+        };
+
+        await axios.post("http://localhost:5500/api/users/register", newUser, {withcredentials: false})
+
+        navigate("/login");
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
       try {
         await axios.post("http://localhost:5500/api/users/register", info, {withcredentials: false})
 
@@ -27,7 +55,7 @@ function Register() {
       } catch (err) {
         console.log(err)
       }
-    
+    }
   };
 
 
@@ -54,7 +82,7 @@ function Register() {
               <div className="txt_field_img">
                 <label htmlFor="file">
                   Image 
-                  {/* <FontAwesomeIcon className="icon" icon={faPlusCircle} /> */}
+                  <FontAwesomeIcon className="icon" icon={faPlusCircle} />
                 </label>
                 <input
                   type="file"
