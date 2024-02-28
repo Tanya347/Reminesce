@@ -1,21 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./card.css";
-import { useEffect } from "react";
+import "../styles/card.css";
 
 function Card(props) {
 
 
   return (
-    <div class="actionCard" data-aos="fade-left"> 
-      <div className="actionElement">
-        <div className="actionDetails">
-          <img src={props.src} alt="" />
-          <p>{props.para}</p>
-          <Link to={`/${props.link}`}>
-            <button>{props.button}</button>
-          </Link>
-        </div>
+    <div className="card">
+      <div class="content">
+        <img id="post-image" src={props.photos[0]} alt="no content" />
+          <h4>{props.title}</h4>
+            <h6>
+              <span>Date : </span> {props.date}
+            </h6>
+            <h6>
+              <span>Location : </span> {props.location}
+            </h6>
+              <p>{props.text.slice(0, 60)}...</p>
+        <Link to={`view/${props._id}`}>
+            <button>Read More</button>
+        </Link>
       </div>
     </div>
   );

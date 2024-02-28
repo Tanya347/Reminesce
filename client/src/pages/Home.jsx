@@ -4,8 +4,8 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useFetch from "../useFetch"
 import { AuthContext } from '../authContext';
-import {Link} from "react-router-dom"
 import '../styles/home.css'
+import Card from '../components/Card';
 
 const Home = () => {
   const [query, setQuery] = useState("");
@@ -46,22 +46,15 @@ const Home = () => {
         ) : (
           <>
             {search(data)?.map((item, i) => (
-              <div className="card" key={item._id} data-aos="fade-up">
-                <div class="content">
-                  <img id="post-image" src={item.photos[0]} alt="no content" />
-                  <h4>{item.title}</h4>
-                  <h6>
-                    <span>Date : </span> {item.date}
-                  </h6>
-                  <h6>
-                    <span>Location : </span> {item.location}
-                  </h6>
-                  <p>{item.text.slice(0, 100)}...</p>
-                  <Link to={`view/${item._id}`}>
-                    <button>Read More</button>
-                  </Link>
-                </div>
-              </div>
+              <Card
+                key={i} // Remember to add a unique key
+                _id={item._id}
+                photos={item.photos}
+                title={item.title}
+                date={item.date}
+                location={item.location}
+                text={item.text}
+              />
             ))}
           </>
         )}

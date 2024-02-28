@@ -25,7 +25,7 @@ const View = () => {
     const handleDelete = async (id) => {
         try {
 
-        await axios.delete(`http://localhost:7700/api/posts/${data._id}`)
+        await axios.delete(`http://localhost:5500/api/entries/${data._id}`)
 
         navigate('/')
         } catch (err) {
