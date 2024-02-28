@@ -1,7 +1,5 @@
 import Entry from "../models/Entry.js"
 import User from "../models/User.js"
-import Routine from "../models/Routine.js"
-import Meal from "../models/Meal.js"
 
 export const createEntry = async (req, res, next) => {
 
@@ -64,8 +62,6 @@ export const createEntry = async (req, res, next) => {
     const userId = req.params.userId;
     try {
       const entries = await Entry.find({ author: userId })
-        .populate('meals', 'name') 
-        .populate('routines', 'name')
       res.status(200).json(entries);
     } catch (err) {
       next(err)
@@ -74,7 +70,7 @@ export const createEntry = async (req, res, next) => {
 
   export const getEntry = async(req, res, next) => {
     try{
-        const entry = await postMessage.findById(req.params.id);
+        const entry = await Entry.findById(req.params.id);
         res.status(200).json(entry);
     }
     catch(err) {

@@ -3,9 +3,8 @@ import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
 import mongoose from "mongoose";
-// import userRoute from "./routes/users.js";
-// import authRoute from "./routes/auth.js";
-// import postRoute from "./routes/posts.js";
+import userRoute from "./routes/user.js";
+import entryRoute from "./routes/entry.js";
 import cookieParser from "cookie-parser";
 import cors from "cors"
 
@@ -35,10 +34,10 @@ app.use(express.json());
 app.use(helmet());
 
 // if(process.env.NODE_ENV === "development") {
-//   app.use(cors({
-//     origin: "http://localhost:3000",
-//     credentials: true
-//   }))
+  app.use(cors({
+    origin: "http://localhost:3000",
+    credentials: true
+  }))
 // } else {
 //   app.use(cors({
 //     origin: "https://paradive.netlify.app",
@@ -49,9 +48,8 @@ app.use(helmet());
 
 app.use(morgan("common"));
 
-// app.use("/api/auth", authRoute);
-// app.use("/api/users", userRoute);
-// app.use("/api/posts", postRoute);
+app.use("/api/users", userRoute);
+app.use("/api/entries", entryRoute);
 
 app.listen(PORT, () => {
   console.log("Listening on port 5500");
