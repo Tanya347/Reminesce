@@ -21,7 +21,7 @@ const Navbar = () => {
 
     return (
         <div className='navContainer'>
-            <Link to="/home"> 
+            <Link to="/"> 
                 <p className='navLogo'>Reminesce</p>
             </Link>
 
